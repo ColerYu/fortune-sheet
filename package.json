@@ -62,7 +62,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {},
-  "gitHooks": {
+  "gitHooks11": {
     "pre-commit": "lint-staged"
   }
 }

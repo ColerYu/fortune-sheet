@@ -19,10 +19,36 @@ const Template: ComponentStory<typeof Workbook> = ({
   const [data, setData] = useState<Sheet[]>(data0);
   const onChange = useCallback((d: Sheet[]) => {
     setData(d);
+    console.log(d);
   }, []);
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Workbook {...args} data={data} onChange={onChange} />
+      <Workbook
+        hooks={
+          {
+            afterUpdateCell(row, column, oldValue, newValue) {},
+            afterDropCell(
+              ctx,
+              row_index,
+              col_index,
+              row_index_original,
+              col_index_original
+            ) {
+              console.log(
+                ctx,
+                row_index,
+                col_index,
+                row_index_original,
+                col_index_original
+              );
+            },
+          } as any
+        }
+        showFormulaBar={false}
+        {...args}
+        data={data}
+        onChange={onChange}
+      />
     </div>
   );
 };

@@ -3063,5 +3063,16 @@ export function onDropCellSelectEnd(
     // ctx.countfuncTimeout = setTimeout(() => {
     // countfunc();
     // }, 500);
+
+    const { afterDropCell } = ctx.hooks as any;
+    if (afterDropCell) {
+      afterDropCell(
+        ctx,
+        row_index,
+        col_index,
+        row_index_original,
+        col_index_original
+      );
+    }
   }
 }

@@ -137,3 +137,5 @@ dist
 
 # storybook
 /storybook-static
+
+.history
